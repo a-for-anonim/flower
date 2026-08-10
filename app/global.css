@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #FFF0F5;
+    color: #92003A;
+    font-family: system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #FFADEE;
+}
+::-webkit-scrollbar-thumb {
+  background: #F62477;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #92003A;
+}
+
+/* Falling Petals Animation */
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg) translateX(0px);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(50vh) rotate(180deg) translateX(50px);
+  }
+  100% {
+    transform: translateY(105vh) rotate(360deg) translateX(-30px);
+    opacity: 0.2;
+  }
+}
+
+.petal {
+  position: fixed;
+  top: -20px;
+  pointer-events: none;
+  z-index: 10;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Flame Flicker Animation */
+@keyframes flicker {
+  0%, 100% {
+    transform: scale(1) rotate(-1deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 10px #FFE185);
+  }
+  50% {
+    transform: scale(1.15) rotate(2deg);
+    opacity: 0.85;
+    filter: drop-shadow(0 0 20px #F62477);
+  }
+}
+
+.flame-animation {
+  animation: flicker 1.2s ease-in-out infinite alternate;
+}
+
+/* Pulse Glow */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(246, 36, 119, 0.4), 0 0 30px rgba(255, 225, 133, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(246, 36, 119, 0.8), 0 0 50px rgba(255, 225, 133, 0.9);
+  }
+}
+
+.glow-box {
+  animation: pulseGlow 3s infinite;
+}
+
+/* Floating Animation for Photo Cards */
+@keyframes floatCard {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.float-card {
+  animation: floatCard 4s ease-in-out infinite;
+}
